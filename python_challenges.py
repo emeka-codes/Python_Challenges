@@ -100,3 +100,22 @@ def findingMissingNumber(ourArray):
 (findingMissingNumber(arr))
 
 
+#Log File Parser, returning the log levels as key and the number of times each log level appears as value in a dict
+from collections import Counter
+logLevels= []
+logLevelsTwo= []
+def fileParser(logFile):
+   with open(logFile) as f:
+      for line in f:
+         x= line.split()
+         logLevels.append(x[2])
+         
+      for log in logLevels:
+         y= log[0:len(log)-1]
+         logLevelsTwo.append(y)
+      count= Counter(logLevelsTwo)
+      print(count)
+ 
+fileParser('log.txt')
+
+

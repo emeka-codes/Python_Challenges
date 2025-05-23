@@ -1,0 +1,5 @@
+[2025-05-22 10:15:03] ERROR: Failed to connect
+[2025-05-22 10:17:11] INFO: Connection established
+[2025-05-22 10:20:45] WARNING: Low memory
+[2025-05-22 10:22:18] ERROR: Timeout occurred
+[2025-05-22 10:25:00] INFO: Retry successful
