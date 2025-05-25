@@ -103,19 +103,36 @@ def findingMissingNumber(ourArray):
 #Log File Parser, returning the log levels as key and the number of times each log level appears as value in a dict
 from collections import Counter
 logLevels= []
-logLevelsTwo= []
+mydict= {}
+
 def fileParser(logFile):
    with open(logFile) as f:
       for line in f:
          x= line.split()
          logLevels.append(x[2])
-         
+
       for log in logLevels:
          y= log[0:len(log)-1]
-         logLevelsTwo.append(y)
-      count= Counter(logLevelsTwo)
-      print(count)
+         mydict[y]= mydict.get(y, 0)+1
+   print(mydict)
  
 fileParser('log.txt')
+
+
+#Merging overlapping intervals
+myInterval= [(1, 3), (2, 6), (8, 10), (15, 18)]
+def mergeOverlap(intervals):
+   intervals.sort(key= lambda x: x[0])
+   merged= [intervals[0]]
+
+   for current in intervals[1:]:
+      lastTuple= merged[-1]
+      if current[0]<=lastTuple[1]:
+         merged[-1]= (lastTuple[0], max(lastTuple[1], current[1]))
+      else:
+         merged.append(current)
+   return merged
+print(mergeOverlap(myInterval))
+
 
 
