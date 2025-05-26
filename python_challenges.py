@@ -136,3 +136,21 @@ print(mergeOverlap(myInterval))
 
 
 
+#Flattening a nested list
+nested = [1, [2, [3, 4], 5], 6]
+
+def flattenList(nested):
+   newNested= []
+   for current in nested:
+      if isinstance(current, list):
+         newNested.extend(flattenList(current))
+      else:
+         newNested.append(current)
+   return newNested
+
+print(flattenList(nested))
+
+
+
+
+
