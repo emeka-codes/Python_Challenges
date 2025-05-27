@@ -151,6 +151,22 @@ def flattenList(nested):
 print(flattenList(nested))
 
 
+#Seat booking system for movie theatres.
+class theater:
+   def __init__(self, rows, columns):
+      self.seats= [['O' for x in range(columns)] for y in range(rows)]
+   
+   def displaySeats(self):
+      print('-----Silverbird Cinema Seat Booking System-----')
+      for currentList in self.seats:
+         print(currentList)
 
+   def bookSeat(self, row= int, column= int):
+      self.seats[row-1][column-1]= 'X'
+      for currentValue in self.seats:
+         print(currentValue)
+      print(f'Seat at row {row} and column {column} booked!')
 
-
+theaterOne= theater(2,5)
+theaterOne.bookSeat(1,3)
+theaterOne.displaySeats()
