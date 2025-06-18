@@ -167,6 +167,35 @@ class theater:
          print(currentValue)
       print(f'Seat at row {row} and column {column} booked!')
 
-theaterOne= theater(2,5)
-theaterOne.bookSeat(1,3)
+theaterOne= theater(3,6)
+theaterOne.bookSeat(2,4)
 theaterOne.displaySeats()
+
+
+
+#counting elements that appear more than n/3 times
+def freqnumbers(numbers):
+   from collections import Counter
+   count= Counter(numbers)
+   freqList= [currentValue for currentValue, freq in count.items() if freq > len(numbers)//3 ]
+   print(freqList)
+freqnumbers([1,1,1,4,4,5,8,8,8,8])
+
+
+#Converting from roman numerals to integers
+def converttoroman(romanNumeral):
+   romanNumerals= {'i': 1, "ii":2, "iii": 3, "iv": 4, "v": 5, "vi":6, "vii": 7, "viii":8, "ix": 9, "x": 10, "xc": 90, "c": 100, "cm": 900 , "m":1000,}
+   total= 0
+   prevValue= 0
+   for currentRomanNumeral in reversed(romanNumeral):
+      value = romanNumerals[currentRomanNumeral]
+      if value < prevValue:
+         total -= value
+      else:
+         total += value 
+      prevValue= value
+   print(total)
+
+converttoroman("mcmxciv")
+
+
