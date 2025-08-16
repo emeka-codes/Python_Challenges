@@ -199,3 +199,49 @@ def converttoroman(romanNumeral):
 converttoroman("mcmxciv")
 
 
+#paasword generator
+import random
+
+def generatepassword():
+   alphabets= ['a', 'b', 'c', 'd', 'e']
+   symbols= ['#', '@', '+', '?', '%']
+   numbers= list(range(0, 10))
+   all_char= alphabets + symbols + numbers
+   password= int(input('What length of password would you like to generate: '))
+   thePassword= [str(random.choice(all_char)) for current in range(password)]
+
+   print(''.join(thePassword))
+generatepassword()
+
+
+#Two Sum II – Input Array is Sorted
+def twoSumTarget(numbers):
+   output= []     
+   target= 9
+   for x in range(len(numbers)):
+      for y in range(x+1, len(numbers)):
+         if numbers[x] + numbers[y]== target:
+            output.append((x,y))
+   return output
+print(twoSumTarget([2,4,7,9]))
+
+
+#Product of elements of an array except self 
+def productArray(nums):   
+   answer= []
+   for index in range(len(nums)):
+      product= 1
+      for y in range(len(nums)):
+         if y != index:
+            product *= nums[y]
+         else:
+            continue
+      answer.append(product)
+   return answer
+print(productArray([2,5,7,19]))
+
+
+
+      
+
+
